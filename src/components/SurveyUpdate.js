@@ -77,9 +77,7 @@ class SurveyUpdate extends Component {
       )
     }
 
-    // if the survey is deleted
     if (updated) {
-      // redirect to the surveys index page
       return <Redirect to={`/surveys/${this.props.match.params.id}`} />
     }
 
