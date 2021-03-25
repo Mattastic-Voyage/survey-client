@@ -9,6 +9,8 @@ import SignUp from './components/SignUp/SignUp'
 import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
+// import crud components
+import SurveyCreate from './components/routes/SurveyCreate'
 
 class App extends Component {
   constructor (props) {
