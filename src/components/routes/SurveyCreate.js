@@ -31,6 +31,7 @@ class SurveyCreate extends Component {
       .then(res => {
         this.setState({ surveyId: res.data.survey._id })
         // pass the response to the .then so we can show survey title
+        console.log(res.data.survey)
         return res
       })
       .then(res => msgAlert({
@@ -70,7 +71,7 @@ class SurveyCreate extends Component {
       return <Redirect to={`/surveys/${surveyId}`} />
     }
     return (
-      <Form>
+      <Form onSubmit={this.handleSubmit}>
         <h2>Make a Survey</h2>
         <Form.Group>
           <Form.Label>Title</Form.Label>
