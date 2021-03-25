@@ -44,8 +44,6 @@ class SurveyResponse extends Component {
   }
 
   render () {
-    // const { response, participantID, surveyId } = this.state
-
     return (
       <div className="row">
         <div className="col-sm-10 col-md-8 mx-auto mt-5">
@@ -54,40 +52,20 @@ class SurveyResponse extends Component {
             <Form.Group controlId="question">
               <Form.Label>Display Question Here</Form.Label>
             </Form.Group>
-            <Form.Group controlId="response">
-              <Form.Label>Please Rate 1-5 (5=Best 1=Worst)</Form.Label>
-              <Form.Check
-                type='number'
-                inline
-                id='1'
-                label='1'
-              />
-              <Form.Check
-                type='number'
-                inline
-                id='2'
-                label='2'
-              />
-              <Form.Check
-                type='number'
-                inline
-                id='3'
-                label='3'
-              />
-              <Form.Check
-                type='number'
-                inline
-                id='4'
-                label='4'
-              />
-              <Form.Check
-                type='number'
-                inline
-                id='5'
-                label='5'
-              />
-              <Button variant="primary" type="submit">Submit</Button>
-            </Form.Group>
+            <div>
+              <Form.Group controlId="response">
+                <Form.Label>Response 1-5</Form.Label>
+                <Form.Control
+                  required
+                  type="response"
+                  name="response"
+                  value={this.state.response}
+                  placeholder="Enter 1-5"
+                  onChange={this.handleChange}
+                />
+              </Form.Group>
+            </div>
+            <Button variant="primary" type="submit">Submit</Button>
           </Form>
 
         </div>
