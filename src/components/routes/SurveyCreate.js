@@ -16,7 +16,7 @@ class SurveyCreate extends Component {
         title: '',
         question: ''
       },
-      createdId: null
+      surveyId: null
     }
   }
   handleSubmit = event => {
@@ -29,7 +29,7 @@ class SurveyCreate extends Component {
     surveyCreate(survey, user)
     // set the createdId to the id of the survey that was just created
       .then(res => {
-        this.setState({ createdId: res.data.survey._id })
+        this.setState({ surveyId: res.data.survey._id })
         // pass the response to the .then so we can show survey title
         return res
       })
@@ -63,11 +63,11 @@ class SurveyCreate extends Component {
   }
   render () {
     // destructure survey and createId state
-    const { title, question, createdId } = this.state
+    const { title, question, surveyId } = this.state
     // if the survey been created, set its id
-    if (createdId) {
+    if (surveyId) {
       // redirect to the survey show page, (show page finish will add correct endpoint)
-      return <Redirect to={`/survey/${createdId}`} />
+      return <Redirect to={`/surveys/${surveyId}`} />
     }
     return (
       <Form>
