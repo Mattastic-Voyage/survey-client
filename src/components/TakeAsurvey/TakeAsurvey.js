@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter, Redirect } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { participantSignUp } from '../../api/participant'
 import messages from '../AutoDismissAlert/messages'
 
@@ -40,7 +40,7 @@ class TakeAsurvey extends Component {
         message: messages.signInSuccess,
         variant: 'success'
       }))
-      .then(() => history.push('/'))
+      .then(() => history.push(`/response/${this.state.surveyId}/${this.state.participantID}`))
       .catch(error => {
         this.setState({ name: '', hometown: '', surveyId: '' })
         msgAlert({
@@ -53,9 +53,9 @@ class TakeAsurvey extends Component {
 
   render () {
     const { name, hometown, surveyId } = this.state
-    if (this.state.participantID) {
-      return <Redirect to={`/response/${this.state.surveyId}/${this.state.participantID}`} />
-    }
+    // if (this.state.participantID) {
+    //   return <Redirect to={`/response/${this.state.surveyId}/${this.state.participantID}`} />
+    // }
     return (
       <div className="row">
         <div className="col-sm-10 col-md-8 mx-auto mt-5">

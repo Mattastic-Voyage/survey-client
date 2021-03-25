@@ -12,8 +12,8 @@ class SurveyResponse extends Component {
 
     this.state = {
       response: '',
-      surveyId: '',
-      participantID: ''
+      surveyId: null,
+      participantID: null
     }
   }
 
@@ -21,20 +21,18 @@ class SurveyResponse extends Component {
     [event.target.name]: event.target.value
   })
 
-  onResponse = event => {
-    event.preventDefault()
+  componentDidMount = () => {
     // Not sure what we should do with 'setUser' below? *********************
     // const { msgAlert, history, setUser } = this.props
-    const { msgAlert, history } = this.props
-
-    createResponse(this.state)
+    const { msgAlert, match } = this.props
+    createResponse(match.params.id, this.state)
 
       .then(() => msgAlert({
         heading: 'Your Survey Response Was Recorded',
         message: messages.signInSuccess,
         variant: 'success'
       }))
-      .then(() => history.push('/'))
+      // .then(() => history.push('/'))
       .catch(error => {
         this.setState({ response: '', participantID: '', surveyId: '' })
         msgAlert({
@@ -51,8 +49,8 @@ class SurveyResponse extends Component {
     return (
       <div className="row">
         <div className="col-sm-10 col-md-8 mx-auto mt-5">
-          <h3>Participant Sign In</h3>
-          <Form onSubmit={this.onResponse}>
+          <h3>Participant Response</h3>
+          <Form>
             <Form.Group controlId="question">
               <Form.Label>Display Question Here</Form.Label>
             </Form.Group>
