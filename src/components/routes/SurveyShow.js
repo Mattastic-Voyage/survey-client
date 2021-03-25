@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import Spinner from 'react-bootstrap/Spinner'
 // import withRouter to use the match router prop
-import { withRouter } from 'react-router-dom'
-import { surveyShow } from '../../api/survey'
+import { withRouter, Redirect } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
+import { surveyShow, surveyDelete } from '../../api/survey'
 
 class SurveyShow extends Component {
   constructor (props) {
@@ -10,7 +11,8 @@ class SurveyShow extends Component {
 
     // data will be null until fetch from api
     this.state = {
-      survey: null
+      survey: null,
+      deleted: false
     }
   }
   componentDidMount () {
@@ -33,8 +35,28 @@ class SurveyShow extends Component {
         })
       })
   }
+  handleDelete = event => {
+    // call for props
+    const { user, msgAlert, match } = this.props
+    // make a fetch request for deleted
+    surveyDelete(match.params.id, user)
+    // set deleted var to true, and redirect to the homepage
+      .then(() => this.setState({ deleted: true }))
+      .then(res => msgAlert({
+        heading: 'Deleted Survey Succesfully',
+        message: 'Survey has been Deleted!',
+        variant: 'success'
+      }))
+      .catch(error => {
+        msgAlert({
+          heading: 'Failed to Delete Survey',
+          message: 'Could not delete survey with error: ' + error.message,
+          variant: 'danger'
+        })
+      })
+  }
   render () {
-    const { survey } = this.state
+    const { survey, deleted } = this.state
     // if we don't have survey
     if (!survey) {
       return (
@@ -43,11 +65,16 @@ class SurveyShow extends Component {
         </Spinner>
       )
     }
+    if (deleted) {
+      // redirect to the homepage
+      return <Redirect to="/" />
+    }
     return (
       <div>
         <h3>{survey.title}</h3>
         <h4>Question: {survey.question}</h4>
         <h4>SurveyID: {survey._id}</h4>
+        <Button onClick={this.handleDelete}>Delete Survey</Button>
       </div>
     )
   }

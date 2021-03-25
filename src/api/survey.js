@@ -27,3 +27,12 @@ export const surveyShow = (id, user) => {
     }
   })
 }
+export const surveyDelete = (id, user) => {
+  return axios({
+    url: apiUrl + '/surveys/' + id,
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${user.token}`
+    }
+  })
+}
