@@ -46,5 +46,20 @@ class SurveyCreate extends Component {
       })
     })
   }
+  // when an input changes, update the state that corresponds with input's name
+  handleChange = event => {
+    // using event.persist to ensure props are not set to null
+    event.persist()
+
+    this.setState(state => {
+    // return the state change
+      return {
+      // set the survey state to what it used to be(..state.survey)
+      // but replace the prop with `name` to its cureent `value`
+      // name could be title or question
+      survey: { ...state.survey, [event.target.name]: event.target.value }
+      }
+    })
+  }
 }
 export default SurveyCreate
