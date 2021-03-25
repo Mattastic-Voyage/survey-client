@@ -12,6 +12,7 @@ import ChangePassword from './components/ChangePassword/ChangePassword'
 import TakeAsurvey from './components/TakeAsurvey/TakeAsurvey'
 // import crud components
 import SurveyCreate from './components/routes/SurveyCreate'
+import SurveyResponse from './components/SurveyResponse/SurveyResponse'
 
 class App extends Component {
   constructor (props) {
@@ -64,6 +65,9 @@ class App extends Component {
           )} />
           <Route path='/take-survey' render={() => (
             <TakeAsurvey msgAlert={this.msgAlert}/>
+          )} />
+          <Route exact path='/response/:id/:id' render={() => (
+            <SurveyResponse msgAlert={this.msgAlert}/>
           )} />
           <AuthenticatedRoute user={user} path='/sign-out' render={() => (
             <SignOut msgAlert={this.msgAlert} clearUser={this.clearUser} user={user} />

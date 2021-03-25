@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom'
 import { participantSignUp } from '../../api/participant'
 import messages from '../AutoDismissAlert/messages'
 
@@ -14,7 +14,7 @@ class TakeAsurvey extends Component {
       name: '',
       hometown: '',
       surveyId: '',
-      participantID: ''
+      participantID: null
     }
   }
 
@@ -22,15 +22,19 @@ class TakeAsurvey extends Component {
     [event.target.name]: event.target.value
   })
 
-  onSignIn = event => {
+  onTakeSurvey = event => {
     event.preventDefault()
     // Not sure what we should do with 'setUser' below? *********************
     // const { msgAlert, history, setUser } = this.props
     const { msgAlert, history } = this.props
 
     participantSignUp(this.state)
-    // Not sure what we should do with 'setUser' below?  *********************
-      // .then(res => setUser(res.data.user))
+      .then((res) => {
+        // console.log(res)
+        this.setState({ participantID: res.data.participant._id })
+        // console.log(this.state.participantID)
+      })
+
       .then(() => msgAlert({
         heading: 'Participant Sign In Success',
         message: messages.signInSuccess,
@@ -49,12 +53,14 @@ class TakeAsurvey extends Component {
 
   render () {
     const { name, hometown, surveyId } = this.state
-
+    if (this.state.participantID) {
+      return <Redirect to={`/response/${this.state.surveyId}/${this.state.participantID}`} />
+    }
     return (
       <div className="row">
         <div className="col-sm-10 col-md-8 mx-auto mt-5">
           <h3>Participant Sign In</h3>
-          <Form onSubmit={this.onSignIn}>
+          <Form onSubmit={this.onTakeSurvey}>
             <Form.Group controlId="name">
               <Form.Label>Name</Form.Label>
               <Form.Control

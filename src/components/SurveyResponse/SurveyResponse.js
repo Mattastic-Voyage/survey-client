@@ -1,18 +1,17 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-import { participantSignUp } from '../../api/participant'
+import { createResponse } from '../../api/response'
 import messages from '../AutoDismissAlert/messages'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
-class TakeAsurvey extends Component {
+class SurveyResponse extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      name: '',
-      hometown: '',
+      response: '',
       surveyId: '',
       participantID: ''
     }
@@ -22,25 +21,24 @@ class TakeAsurvey extends Component {
     [event.target.name]: event.target.value
   })
 
-  onSignIn = event => {
+  onResponse = event => {
     event.preventDefault()
     // Not sure what we should do with 'setUser' below? *********************
     // const { msgAlert, history, setUser } = this.props
     const { msgAlert, history } = this.props
 
-    participantSignUp(this.state)
-    // Not sure what we should do with 'setUser' below?  *********************
-      // .then(res => setUser(res.data.user))
+    createResponse(this.state)
+
       .then(() => msgAlert({
-        heading: 'Participant Sign In Success',
+        heading: 'Your Survey Response Was Recorded',
         message: messages.signInSuccess,
         variant: 'success'
       }))
       .then(() => history.push('/'))
       .catch(error => {
-        this.setState({ name: '', hometown: '', surveyId: '' })
+        this.setState({ response: '', participantID: '', surveyId: '' })
         msgAlert({
-          heading: 'Participant Sign Up Failed with error: ' + error.message,
+          heading: 'Survey Response Failed with error: ' + error.message,
           message: messages.signInFailure,
           variant: 'danger'
         })
@@ -48,52 +46,50 @@ class TakeAsurvey extends Component {
   }
 
   render () {
-    const { name, hometown, surveyId } = this.state
+    // const { response, participantID, surveyId } = this.state
 
     return (
       <div className="row">
         <div className="col-sm-10 col-md-8 mx-auto mt-5">
           <h3>Participant Sign In</h3>
-          <Form onSubmit={this.onSignIn}>
-            <Form.Group controlId="name">
-              <Form.Label>Name</Form.Label>
-              <Form.Control
-                required
-                type="name"
-                name="name"
-                value={name}
-                placeholder="Enter name"
-                onChange={this.handleChange}
-              />
+          <Form onSubmit={this.onResponse}>
+            <Form.Group controlId="question">
+              <Form.Label>Display Question Here</Form.Label>
             </Form.Group>
-            <Form.Group controlId="hometown">
-              <Form.Label>Hometown</Form.Label>
-              <Form.Control
-                required
-                name="hometown"
-                value={hometown}
-                type="hometown"
-                placeholder="Hometown"
-                onChange={this.handleChange}
+            <Form.Group controlId="response">
+              <Form.Label>Please Rate 1-5 (5=Best 1=Worst)</Form.Label>
+              <Form.Check
+                type='number'
+                inline
+                id='1'
+                label='1'
               />
-            </Form.Group>
-            <Form.Group controlId="surveyId">
-              <Form.Label>Survey ID</Form.Label>
-              <Form.Control
-                required
-                name="surveyId"
-                value={surveyId}
-                type="surveyId"
-                placeholder="Survey ID"
-                onChange={this.handleChange}
+              <Form.Check
+                type='number'
+                inline
+                id='2'
+                label='2'
               />
+              <Form.Check
+                type='number'
+                inline
+                id='3'
+                label='3'
+              />
+              <Form.Check
+                type='number'
+                inline
+                id='4'
+                label='4'
+              />
+              <Form.Check
+                type='number'
+                inline
+                id='5'
+                label='5'
+              />
+              <Button variant="primary" type="submit">Submit</Button>
             </Form.Group>
-            <Button
-              variant="primary"
-              type="submit"
-            >
-              Submit
-            </Button>
           </Form>
 
         </div>
@@ -102,4 +98,4 @@ class TakeAsurvey extends Component {
   }
 }
 
-export default withRouter(TakeAsurvey)
+export default withRouter(SurveyResponse)

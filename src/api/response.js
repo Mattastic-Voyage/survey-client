@@ -1,13 +1,16 @@
-export const createResponse = (passwords, user) => {
+import apiUrl from '../apiConfig'
+
+import axios from 'axios'
+
+export const createResponse = (info) => {
   return axios({
     url: apiUrl + '/responses',
     method: 'POST',
-    headers:,
     data: {
-      rsponse: {
-        response: response,
-        surveyId: surveyId,
-        participant: participantID
+      response: {
+        response: info.response,
+        surveyId: info.surveyId,
+        participant: info.participantID
       }
     }
   })
