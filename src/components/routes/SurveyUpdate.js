@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect, withRouter } from 'react-router-dom'
 
-import { surveyUpdate, surveyShow } from '../api/updateSurvey'
+import { surveyUpdate, surveyShow } from '../../api/survey'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Spinner from 'react-bootstrap/Spinner'
