@@ -18,3 +18,12 @@ export const surveyCreate = (survey, user) => {
     }
   })
 }
+export const surveyShow = (id, user) => {
+  return axios({
+    url: apiUrl + '/surveys/' + id,
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${user.token}`
+    }
+  })
+}
