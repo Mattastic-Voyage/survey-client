@@ -12,6 +12,7 @@ import ChangePassword from './components/ChangePassword/ChangePassword'
 // import crud components
 import SurveyCreate from './components/routes/SurveyCreate'
 import SurveyShow from './components/routes/SurveyShow'
+import SurveyUpdate from './components/routes/SurveyUpdate'
 
 class App extends Component {
   constructor (props) {
@@ -71,6 +72,10 @@ class App extends Component {
           {/* create a survey */}
           <AuthenticatedRoute user={user} path='/create-survey' render={() => (
             <SurveyCreate msgAlert={this.msgAlert} user={user} />
+          )} />
+          {/* Update the survey */}
+          <AuthenticatedRoute user={user} exact path='/surveys/:id/edit' render={() => (
+            <SurveyUpdate msgAlert={this.msgAlert} user={user} />
           )} />
           {/* Show the survey */}
           <AuthenticatedRoute user={user} exact path='/surveys/:id' render={() => (
