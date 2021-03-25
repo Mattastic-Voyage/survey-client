@@ -69,6 +69,10 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
+          {/* create a survey */}
+          <AuthenticatedRoute user={user} path='/create-survey' render={() => (
+            <SurveyCreate msgAlert={this.msgAlert} user={user} />
+          )} />
         </main>
       </Fragment>
     )
