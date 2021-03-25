@@ -2,16 +2,10 @@ import apiUrl from '../apiConfig'
 
 import axios from 'axios'
 
-export const createResponse = (info, id) => {
+export const createResponse = (id, response) => {
   return axios({
     url: apiUrl + '/responses/' + id,
     method: 'POST',
-    data: {
-      response: {
-        response: info.response,
-        surveyId: info.surveyId,
-        participant: info.participantID
-      }
-    }
+    data: { response }
   })
 }

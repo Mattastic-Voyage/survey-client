@@ -11,21 +11,25 @@ class SurveyResponse extends Component {
     super(props)
 
     this.state = {
-      response: '',
+      response: {
+        response: ''
+      },
       surveyId: null,
       participantID: null
     }
   }
-
   handleChange = event => this.setState({
     [event.target.name]: event.target.value
   })
 
-  componentDidMount = () => {
+  handleSubmit = (event) => {
+    event.preventDefault()
     // Not sure what we should do with 'setUser' below? *********************
     // const { msgAlert, history, setUser } = this.props
     const { msgAlert, match } = this.props
-    createResponse(match.params.id, this.state)
+    const { response } = this.state
+
+    createResponse(match.params.id, response)
 
       .then(() => msgAlert({
         heading: 'Your Survey Response Was Recorded',
@@ -50,7 +54,7 @@ class SurveyResponse extends Component {
       <div className="row">
         <div className="col-sm-10 col-md-8 mx-auto mt-5">
           <h3>Participant Response</h3>
-          <Form>
+          <Form onSubmit={this.handleSubmit}>
             <Form.Group controlId="question">
               <Form.Label>Display Question Here</Form.Label>
             </Form.Group>
