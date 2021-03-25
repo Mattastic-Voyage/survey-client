@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Redirect, withRouter } from 'react-router-dom'
 
-import { surveyUpdate } from '../../api/survey'
+import { surveyUpdate, surveyShow } from '../../api/survey'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Spinner from 'react-bootstrap/Spinner'
@@ -17,7 +17,25 @@ class SurveyUpdate extends Component {
   }
 
   componentDidMount () {
-// Add Eric's code from show
+    const { user, match, msgAlert } = this.props
+
+    // make a request for a survey
+    surveyShow(match.params.id, user)
+    // set the survey state to the data that return from api call
+      .then(res => this.setState({ survey: res.data.survey }))
+      .then(() => msgAlert({
+        heading: 'Survey Fetched Succesfully',
+        message: 'Survey is being viewed.',
+        variant: 'success'
+      }))
+      .catch(error => {
+        msgAlert({
+          heading: 'Showing Survey Failed',
+          message: 'Failed to show survey with error: ' + error.message,
+          variant: 'danger'
+        })
+      })
+  }
 
   handleSubmit = (event) => {
     event.preventDefault()
@@ -43,7 +61,6 @@ class SurveyUpdate extends Component {
       })
   }
 
-  // same handleChange from SurveyCreate
   handleChange = event => {
     this.setState({ survey: { ...this.state.survey, [event.target.name]: event.target.value } })
   }
@@ -75,7 +92,7 @@ class SurveyUpdate extends Component {
             required
             type="text"
             name="title"
-            value={title}
+            value={survey.title}
             placeholder="Enter New Title"
             onChange={this.handleChange}
           />
@@ -85,7 +102,7 @@ class SurveyUpdate extends Component {
           <Form.Control
             required
             name="question"
-            value={question}
+            value={survey.question}
             type="text"
             placeholder="Enter New Question"
             onChange={this.handleChange}
@@ -101,4 +118,4 @@ class SurveyUpdate extends Component {
   }
 }
 
-export default SurveyUpdate
+export default withRouter(SurveyUpdate)
