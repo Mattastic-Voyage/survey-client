@@ -69,7 +69,7 @@ class App extends Component {
           <Route path='/take-survey' render={() => (
             <TakeAsurvey msgAlert={this.msgAlert}/>
           )} />
-          <Route exact path='/response/:id/:id' render={() => (
+          <Route exact path='/response/:surveyID/:participantID' render={() => (
             <SurveyResponse msgAlert={this.msgAlert}/>
           )} />
           <AuthenticatedRoute user={user} path='/sign-out' render={() => (
