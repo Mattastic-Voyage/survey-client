@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { createResponse } from '../../api/response'
+import { surveyShow } from '../../api/survey'
 import messages from '../AutoDismissAlert/messages'
 
 import Form from 'react-bootstrap/Form'
@@ -8,16 +9,23 @@ import Button from 'react-bootstrap/Button'
 
 class SurveyResponse extends Component {
   constructor (props) {
-    console.log(props)
+    // console.log(props)
     super(props)
     const { match } = this.props
+    // const surveyQuestion
     this.state = {
       response: {
         response: '',
         surveyId: match.params.surveyID,
         participantID: match.params.participantID
-      }
+      },
+      question: ''
     }
+    surveyShow(match.params.surveyID)
+      .then(response => {
+        this.setState({ question: response.data.survey.question })
+        console.log('survey question is: ', response.data.survey.question)
+      })
   }
   handleChange = event => {
     event.persist()
@@ -57,7 +65,7 @@ class SurveyResponse extends Component {
   }
 
   render () {
-    const { response } = this.state
+    const { response, question } = this.state
     console.log(response)
     return (
       <div className="row">
@@ -65,7 +73,7 @@ class SurveyResponse extends Component {
           <h3>Participant Response</h3>
           <Form onSubmit={this.handleSubmit}>
             <Form.Group controlId="question">
-              <Form.Label>Display Question Here {this.props.question}</Form.Label>
+              <Form.Label>{question}</Form.Label>
             </Form.Group>
             <div>
               <Form.Group controlId="response">
@@ -75,7 +83,7 @@ class SurveyResponse extends Component {
                   type="response"
                   name="response"
                   placeholder="Enter 1-5"
-                  value={response}
+                  value={response.response}
                   onChange={this.handleChange}
                 />
               </Form.Group>
