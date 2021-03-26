@@ -16,6 +16,7 @@ import SurveyResponse from './components/SurveyResponse/SurveyResponse'
 import SurveyCreate from './components/routes/SurveyCreate'
 import SurveyShow from './components/routes/SurveyShow'
 import SurveyUpdate from './components/routes/SurveyUpdate'
+import SurveyIndex from './components/routes/SurveyIndex'
 
 class App extends Component {
   constructor (props) {
@@ -89,6 +90,10 @@ class App extends Component {
           {/* Show the survey */}
           <AuthenticatedRoute user={user} exact path='/surveys/:id' render={() => (
             <SurveyShow msgAlert={this.msgAlert} user={user} />
+          )} />
+          {/* Show ALL surveys */}
+          <AuthenticatedRoute user={user} exact path='/surveys' render={() => (
+            <SurveyIndex msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>
