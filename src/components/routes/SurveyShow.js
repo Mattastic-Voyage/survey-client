@@ -62,7 +62,7 @@ class SurveyShow extends Component {
   }
   render () {
     const { survey, title, deleted } = this.state
-    console.log('response data is: ', survey.responses)
+    // console.log('response data is: ', survey.responses)
     // if we don't have survey
     if (!survey) {
       return (
@@ -76,7 +76,7 @@ class SurveyShow extends Component {
       return <Redirect to="/" />
     }
     const responseJsx = survey.responses.map(response => (
-      // console.log('this is the response data: ', response.response)
+      // // console.log('this is the response data: ', response.response)
       <div key={response.response}>
         <li>{response.response}</li>
       </div>

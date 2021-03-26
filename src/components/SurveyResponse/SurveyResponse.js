@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/Button'
 
 class SurveyResponse extends Component {
   constructor (props) {
-    // console.log(props)
+    // // console.log(props)
     super(props)
     const { match } = this.props
     // const surveyQuestion
@@ -24,7 +24,7 @@ class SurveyResponse extends Component {
     surveyShow(match.params.surveyID)
       .then(response => {
         this.setState({ question: response.data.survey.question })
-        console.log('survey question is: ', response.data.survey.question)
+        // console.log('survey question is: ', response.data.survey.question)
       })
   }
   handleChange = event => {
@@ -66,7 +66,7 @@ class SurveyResponse extends Component {
 
   render () {
     const { response, question } = this.state
-    console.log(response)
+    // console.log(response)
     return (
       <div className="row">
         <div className="col-sm-10 col-md-8 mx-auto mt-5">

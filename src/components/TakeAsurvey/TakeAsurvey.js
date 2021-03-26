@@ -30,9 +30,9 @@ class TakeAsurvey extends Component {
 
     participantSignUp(this.state)
       .then((res) => {
-        // console.log(res)
+        // // console.log(res)
         this.setState({ participantID: res.data.participant._id })
-        // console.log(this.state.participantID)
+        // // console.log(this.state.participantID)
       })
 
       .then(() => msgAlert({

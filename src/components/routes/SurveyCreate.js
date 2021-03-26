@@ -31,7 +31,7 @@ class SurveyCreate extends Component {
       .then(res => {
         this.setState({ surveyId: res.data.survey._id })
         // pass the response to the .then so we can show survey title
-        console.log(res.data.survey)
+        // // console.log(res.data.survey)
         return res
       })
       .then(res => msgAlert({
