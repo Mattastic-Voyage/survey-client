@@ -20,8 +20,6 @@ class SurveyIndex extends Component {
     surveyIndex(user)
       // set the surveys state, to the surveys we got back in the response's data
       .then(res => this.setState({ surveys: res.data.surveys }))
-      // dummy data until we create actual surveys
-      // .then(res => this.setState({ surveys: [{ _id: 1, title: 'jaws' }, { _id: 2, title: 'The Phantom Menace' }] }))
       .then(() => msgAlert({
         heading: 'Loaded Surveys Successfully',
         message: 'All surveys retrieved. Click on one to go to its page.',
