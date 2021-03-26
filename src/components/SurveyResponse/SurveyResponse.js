@@ -65,7 +65,7 @@ class SurveyResponse extends Component {
           <h3>Participant Response</h3>
           <Form onSubmit={this.handleSubmit}>
             <Form.Group controlId="question">
-              <Form.Label>Display Question Here</Form.Label>
+              <Form.Label>Display Question Here {this.props.question}</Form.Label>
             </Form.Group>
             <div>
               <Form.Group controlId="response">
