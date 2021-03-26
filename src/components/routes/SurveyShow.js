@@ -11,15 +11,20 @@ class SurveyShow extends Component {
 
     // data will be null until fetch from api
     this.state = {
-      survey: null,
+      survey: {
+        title: '',
+        question: '',
+        responses: [],
+        participants: []
+      },
       deleted: false
     }
   }
   componentDidMount () {
-    const { user, match, msgAlert } = this.props
+    const { match, msgAlert } = this.props
 
     // make a request for a survey
-    surveyShow(match.params.id, user)
+    surveyShow(match.params.id)
     // set the survey state to the data that return from api call
       .then(res => this.setState({ survey: res.data.survey }))
       .then(() => msgAlert({
@@ -56,7 +61,8 @@ class SurveyShow extends Component {
       })
   }
   render () {
-    const { survey, deleted } = this.state
+    const { survey, title, deleted } = this.state
+    console.log('response data is: ', survey.responses)
     // if we don't have survey
     if (!survey) {
       return (
@@ -69,11 +75,18 @@ class SurveyShow extends Component {
       // redirect to the homepage
       return <Redirect to="/" />
     }
+    const responseJsx = survey.responses.map(response => (
+      // console.log('this is the response data: ', response.response)
+      <div key={response.response}>
+        <li>{response.response}</li>
+      </div>
+    ))
     return (
       <div>
-        <h3>{survey.title}</h3>
+        <h3>{title}</h3>
         <h4>Question: {survey.question}</h4>
         <h4>SurveyID: {survey._id}</h4>
+        <h4>Response: {responseJsx} </h4>
         <Button onClick={this.handleDelete}>Delete Survey</Button>
       </div>
     )

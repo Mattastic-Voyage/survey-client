@@ -18,13 +18,10 @@ export const surveyCreate = (survey, user) => {
     }
   })
 }
-export const surveyShow = (id, user) => {
+export const surveyShow = (id) => {
   return axios({
     url: apiUrl + '/surveys/' + id,
-    method: 'GET',
-    headers: {
-      'Authorization': `Bearer ${user.token}`
-    }
+    method: 'GET'
   })
 }
 export const surveyDelete = (id, user) => {
