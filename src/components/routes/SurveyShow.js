@@ -16,10 +16,10 @@ class SurveyShow extends Component {
     }
   }
   componentDidMount () {
-    const { user, match, msgAlert } = this.props
+    const { match, msgAlert } = this.props
 
     // make a request for a survey
-    surveyShow(match.params.id, user)
+    surveyShow(match.params.id)
     // set the survey state to the data that return from api call
       .then(res => this.setState({ survey: res.data.survey }))
       .then(() => msgAlert({
