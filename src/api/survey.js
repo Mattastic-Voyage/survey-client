@@ -51,3 +51,12 @@ export const surveyUpdate = (id, survey, user) => {
     }
   })
 }
+export const surveyIndex = (user) => {
+  return axios({
+    url: apiUrl + '/surveys',
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${user.token}`
+    }
+  })
+}
