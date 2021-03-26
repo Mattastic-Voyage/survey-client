@@ -38,7 +38,6 @@ class SurveyResponse extends Component {
       }
     })
   }
-
   handleSubmit = (event) => {
     event.preventDefault()
     // Not sure what we should do with 'setUser' below? *********************
@@ -77,7 +76,7 @@ class SurveyResponse extends Component {
             </Form.Group>
             <div>
               <Form.Group controlId="response">
-                <Form.Label>Response 1-5</Form.Label>
+                <Form.Label>Enter a rating between 1 and 5, with 1 as the lowest and 5 as the greatest</Form.Label>
                 <Form.Control
                   required
                   type="response"

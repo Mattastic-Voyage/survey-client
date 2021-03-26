@@ -1,19 +1,20 @@
 # SurveyUs
 > | Contents |  |
 > |--|--|
-> | [About]() | [Technologies Employed]() |
-> | [User Stories]() | [Future Iterations]() |
-> | [Wireframe] | [Links]() |
+> | [About](https://github.com/Mattastic-Voyage/survey-client#what-is-surveyus) | [Technologies Employed](https://github.com/Mattastic-Voyage/survey-client#technologies-employed) |
+> | [User Stories](https://github.com/Mattastic-Voyage/survey-client#user-stories) | [Future Iterations](https://github.com/Mattastic-Voyage/survey-client#future-iterations) |
+> | [Wireframe](https://github.com/Mattastic-Voyage/survey-client#wireframe) | [Links](https://github.com/Mattastic-Voyage/survey-client#links) |
+> | [Planning](https://github.com/Mattastic-Voyage/survey-client#planning) |  |
 >
 > ## What is SurveyUs?
 > **SurveyUs** is the flagship application produced by the creatives at [Mattastic-Voyage Industries](https://github.com/Mattastic-Voyage). One part survey, one part the adventure of taking a survey, SurveyUs aims to streamline the surveying process by asking users the tough questions and limiting their responses to the answers we like.
 > - Example:
->> - _Question 1_: Who is your favorite band and why is it the Rolling Stones?
->> - _Answer 1_: True [  ]  |  False [   ]
+>> - _Question 1_: On a truth scale between 1 and 5, rate who your favorite band is and why is it the Rolling Stones?
+>> - _Answer 1_: True: "They're my _faaaaavorite_!" [ 5 ]  |  False: "They're **_beyond_** my _faaaaavorite_!" [ 5 ]
 > 
 > By signing up with SurveyUs, you unlock the ability to create true/false surveys for an anonymous audience, allowing you to tabulate the general feeling of a population on your crafted topic.
 >
-> *SurveyUs*: For when the answers don't matter ¯\_(ツ)_/¯
+> *SurveyUs*: For when the answers don't matter ¯|_(ツ)_/¯
 > ## User Stories
 >> - As an unregistered user, I would like to sign up with email and password.
 >> - As a registered user, I would like to sign in with email and password.
@@ -34,10 +35,10 @@
 >> |  | **Day 1: 20 minute Planning Standup** | **Day 2: Back-End API Sprint** | **Day 3: CRUD Sprint** | **Day 4: Survey Logic** | **Day 5: Styling and Bug Testing** |
 >> |--|--|--|--|--|--|
 >> | Description | - Finalized the Survey prompt as our project choice<br />- Worked out a coding schedule, setting each day as a Sprint | - We 'mob programmed' the production of the API, while clearing through the smaller clerical/admin tasks. | - Team Members volunteered to sprint draft one of each of the basic CRUD actions<br />- Team Members created their CRUD action, made a pull request upon completion, and then we came back together for code review before merging. | - For the app/survey logic, we split into pairs to team tackle the creation of the more nuanced parts of the client side production. As each feature was completed, we pushed up with a pull request, then reviewed the code as a team before merging. | - We 'mob' programmed the styling as a group, committing and deploying after each major style change. The team members who weren't actively altering style were testing the deployed site for bugs between each deployment. |
->> | [Matt Eder](https://github.com/mjeder): |  | - Downloaded the templates<br />- Initiated GH repositories for both the [Client](https://github.com/Mattastic-Voyage/survey-client) and [API](https://github.com/Mattastic-Voyage/survey-api)<br />- Main point of contact with instructors for communicating up our questions and securing conference times | <!-- What they did -->  |
->> | [Eric Howard](https://github.com/EricHoward27):  | <!-- What they did --> | - Tested the [API](https://github.com/Mattastic-Voyage/survey-api) with [Postman](https://www.postman.com/)<br />- Hard coded the [API](https://github.com/Mattastic-Voyage/survey-api) using [VS Code](https://code.visualstudio.com/)<br />- Translated our models into the appropriate schema and routes | - Built the Create Survey component<br />  |
->> | [Kenneth Cox](https://github.com/xpertimage): | <!-- What they did --> | - Drew up the ERD<br />- Spearheaded the conversation to articulate the structure of the [API](https://github.com/Mattastic-Voyage/survey-api)<br />- Provided examples of previous successes to help inform the sculpting of the [API](https://github.com/Mattastic-Voyage/survey-api) | <!-- What they did -->  |
->> | [Matt Moore](https://github.com/mmmoore1313): | <!-- What they did --> | - Drew up the Wireframe<br />- Did the initial deployment of the [Client](https://github.com/Mattastic-Voyage/survey-client) to [GH-Pages](https://mattastic-voyage.github.io/survey-client/)<br />- Drafted the README.md  | <!-- What they did -->  |
+>> | [Matt Eder](https://github.com/mjeder): |  | - Downloaded the templates<br />- Initiated GH repositories for both the [Client](https://github.com/Mattastic-Voyage/survey-client) and [API](https://github.com/Mattastic-Voyage/survey-api)<br />- Main point of contact with instructors for communicating up our questions and securing conference times | - Greatly contributed to the mob programming of the API  | - Worked on and completed the Update function<br />- Worked closely with [Eric Howard](https://github.com/EricHoward27), [Kenneth Cox](https://github.com/xpertimage), and [Matt Moore](https://github.com/mmmoore1313) | - Worked with [Kenneth Cox](https://github.com/xpertimage) to compete the index survey function<br />- Worked with [Eric Howard](https://github.com/EricHoward27), [Kenneth Cox](https://github.com/xpertimage), and [Matt Moore](https://github.com/mmmoore1313) to solidfy the error on the response save |
+>> | [Eric Howard](https://github.com/EricHoward27):  | <!-- What they did --> | - Tested the [API](https://github.com/Mattastic-Voyage/survey-api) with [Postman](https://www.postman.com/)<br />- Hard coded the [API](https://github.com/Mattastic-Voyage/survey-api) using [VS Code](https://code.visualstudio.com/)<br />- Translated our models into the appropriate schema and routes | - Built the Create Survey component | - Worked through the creation of the Show and Delete Function<br />- Worked closely with [Matt Eder](https://github.com/mjeder), [Kenneth Cox](https://github.com/xpertimage), and [Matt Moore](https://github.com/mmmoore1313) to find and implement a solution to the TakeaSurvey creation | - Solved the response submit error we were encountering<br />- Worked with [Matt Eder](https://github.com/mjeder), [Kenneth Cox](https://github.com/xpertimage), and [Matt Moore](https://github.com/mmmoore1313) to solidfy the error on the response save |
+>> | [Kenneth Cox](https://github.com/xpertimage): | <!-- What they did --> | - Drew up the ERD<br />- Spearheaded the conversation to articulate the structure of the [API](https://github.com/Mattastic-Voyage/survey-api)<br />- Provided examples of previous successes to help inform the sculpting of the [API](https://github.com/Mattastic-Voyage/survey-api) | - Drove the coding while we mob programmed | - Created the TakeaSurvey form and page<br />- All around Team MVP for identifying the patterns for the solutions to our problems | - Worked with [Matt Eder](https://github.com/mjeder) to compete the index survey function |
+>> | [Matt Moore](https://github.com/mmmoore1313): | <!-- What they did --> | - Drew up the Wireframe<br />- Did the initial deployment of the [Client](https://github.com/Mattastic-Voyage/survey-client) to [GH-Pages](https://mattastic-voyage.github.io/survey-client/)<br />- Drafted the README.md | - Set up and deployed Heroku account<br />- Acted as Git guru for seamless merging of branches<br />- Modified the README.md as needed | - Acted as tester for merges to the dev branch<br />-  Acted as Git guru for seamless merging of branches<br />- Worked into the evening with [Eric Howard](https://github.com/EricHoward27) and [Kenneth Cox](https://github.com/xpertimage) to find a solution to the TakeaSurvey page | - Styling<br />-  Acted as Git guru for seamless merging of branches<br />- Finalized deployments to gh-pages and heroku<br />- Worked with [Matt Eder](https://github.com/mjeder), [Eric Howard](https://github.com/EricHoward27), and [Kenneth Cox](https://github.com/xpertimage) to solidfy the error on the response save |
 >>
 > ## Technologies Employed
 >> | **General Development** | **[Client](https://github.com/Mattastic-Voyage/survey-client) Development** | **[API](https://github.com/Mattastic-Voyage/survey-api) Development** | **Deployment** |
@@ -59,8 +60,7 @@
 >>> - Question/form locks to prevent the surveyed from spamming answers
 >> ### Problems Encountered
 >>> - **Problem**
->>>> - _Description_
->>>> - **_Solution_**
+>>>> - We solved the main problems we encountered on our way to Minimum Viable Product. Our aim is to accomplish some of our stretch goals as we roll forwards
 >>
 > ## Links:
 >> | | **Deployed Sites** | **Repositories** |
