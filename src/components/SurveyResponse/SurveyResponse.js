@@ -54,11 +54,11 @@ class SurveyResponse extends Component {
         variant: 'success'
       }))
       // .then(() => history.push('/'))
-      .catch(error => {
+      .catch(() => {
         this.setState({ response: '', participantID: '', surveyId: '' })
         msgAlert({
-          heading: 'Survey Response Failed with error: ' + error.message,
-          message: messages.signInFailure,
+          heading: 'Error',
+          message: 'Please keep answer between 1-5',
           variant: 'danger'
         })
       })
