@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Spinner from 'react-bootstrap/Spinner'
 // import withRouter to use the match router prop
-import { withRouter, Redirect } from 'react-router-dom'
+import { withRouter, Redirect, Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import { surveyShow, surveyDelete } from '../../api/survey'
 
@@ -88,6 +88,11 @@ class SurveyShow extends Component {
         <h4>SurveyID: {survey._id}</h4>
         <h4>Response: {responseJsx} </h4>
         <Button onClick={this.handleDelete}>Delete Survey</Button>
+        <Link to={`/surveys/${survey._id}/edit`}>
+          <Button renderAs='button'>
+            Edit Survey
+          </Button>
+        </Link>
       </div>
     )
   }
