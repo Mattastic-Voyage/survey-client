@@ -8,28 +8,37 @@ import Button from 'react-bootstrap/Button'
 
 class SurveyResponse extends Component {
   constructor (props) {
+    console.log(props)
     super(props)
-
+    const { match } = this.props
     this.state = {
       response: {
-        response: ''
-      },
-      surveyId: null,
-      participantID: null
+        response: '',
+        surveyId: match.params.surveyID,
+        participantID: match.params.participantID
+      }
     }
   }
-  handleChange = event => this.setState({
-    [event.target.name]: event.target.value
-  })
+  handleChange = event => {
+    event.persist()
+
+    this.setState(state => {
+      // return our state change
+      return {
+        // set the response state to what it used to be
+        response: { ...state.response, [event.target.name]: event.target.value }
+      }
+    })
+  }
 
   handleSubmit = (event) => {
     event.preventDefault()
     // Not sure what we should do with 'setUser' below? *********************
     // const { msgAlert, history, setUser } = this.props
-    const { msgAlert, match } = this.props
+    const { msgAlert } = this.props
     const { response } = this.state
 
-    createResponse(match.params.id, response)
+    createResponse(response)
 
       .then(() => msgAlert({
         heading: 'Your Survey Response Was Recorded',
@@ -48,7 +57,8 @@ class SurveyResponse extends Component {
   }
 
   render () {
-    // const { response, participantID, surveyId } = this.state
+    const { response } = this.state
+    console.log(response)
     return (
       <div className="row">
         <div className="col-sm-10 col-md-8 mx-auto mt-5">
@@ -64,8 +74,8 @@ class SurveyResponse extends Component {
                   required
                   type="response"
                   name="response"
-                  value={this.state.response}
                   placeholder="Enter 1-5"
+                  value={response}
                   onChange={this.handleChange}
                 />
               </Form.Group>
