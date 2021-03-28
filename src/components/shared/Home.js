@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
-import { Container, Row, Button, Col } from 'react-bootstrap'
+import { Container, Row, Button, Col, Nav } from 'react-bootstrap'
 // import Modaltest from './modaltest'
 
 const authenticatedOptions = (
@@ -41,23 +41,23 @@ const unauthenticatedOptions = (
     <Row>
       <div>
         <Col>
-          <Link to='#sign-up'>
+          <Nav.Link href='#sign-up'>
             <Button>Sign Up</Button>
-          </Link>
+          </Nav.Link>
         </Col>
       </div>
       <div>
         <Col>
-          <Link to='#take-survey'>
+          <Nav.Link href='#take-survey'>
             <Button>Take A Survey</Button>
-          </Link>
+          </Nav.Link>
         </Col>
       </div>
       <div>
         <Col>
-          <Link to='#sign-in'>
+          <Nav.Link href='#sign-in'>
             <Button className='button'>Sign In</Button>
-          </Link>
+          </Nav.Link>
         </Col>
       </div>
     </Row>
