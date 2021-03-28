@@ -4,7 +4,7 @@ import { v4 as uuid } from 'uuid'
 // this is a comment
 import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
-import Header from './components/Header/Header'
+
 import SignUp from './components/SignUp/SignUp'
 import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
@@ -17,6 +17,8 @@ import SurveyCreate from './components/routes/SurveyCreate'
 import SurveyShow from './components/routes/SurveyShow'
 import SurveyUpdate from './components/routes/SurveyUpdate'
 import SurveyIndex from './components/routes/SurveyIndex'
+// import layout
+import Layout from './components/shared/Layout'
 
 class App extends Component {
   constructor (props) {
@@ -44,12 +46,12 @@ class App extends Component {
     })
   }
 
-  render () {
+  render (props) {
     const { msgAlerts, user } = this.state
 
     return (
       <Fragment>
-        <Header user={user} />
+
         {msgAlerts.map(msgAlert => (
           <AutoDismissAlert
             key={msgAlert.id}
@@ -60,42 +62,42 @@ class App extends Component {
             deleteAlert={this.deleteAlert}
           />
         ))}
-        <main className="container">
-          <Route path='/sign-up' render={() => (
-            <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
-          )} />
-          <Route path='/sign-in' render={() => (
-            <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
-          )} />
-          <Route path='/take-survey' render={() => (
-            <TakeAsurvey msgAlert={this.msgAlert}/>
-          )} />
-          <Route exact path='/response/:surveyID/:participantID' render={() => (
-            <SurveyResponse msgAlert={this.msgAlert}/>
-          )} />
-          <AuthenticatedRoute user={user} path='/sign-out' render={() => (
-            <SignOut msgAlert={this.msgAlert} clearUser={this.clearUser} user={user} />
-          )} />
-          <AuthenticatedRoute user={user} path='/change-password' render={() => (
-            <ChangePassword msgAlert={this.msgAlert} user={user} />
-          )} />
-          {/* create a survey */}
-          <AuthenticatedRoute user={user} path='/create-survey' render={() => (
-            <SurveyCreate msgAlert={this.msgAlert} user={user} />
-          )} />
-          {/* Update the survey */}
-          <AuthenticatedRoute user={user} exact path='/surveys/:id/edit' render={() => (
-            <SurveyUpdate msgAlert={this.msgAlert} user={user} />
-          )} />
-          {/* Show the survey */}
-          <AuthenticatedRoute user={user} exact path='/surveys/:id' render={() => (
-            <SurveyShow msgAlert={this.msgAlert} user={user} />
-          )} />
-          {/* Show ALL surveys */}
-          <AuthenticatedRoute user={user} exact path='/surveys' render={() => (
-            <SurveyIndex msgAlert={this.msgAlert} user={user} />
-          )} />
-        </main>
+
+        <Layout />
+        <Route path='/sign-up' render={() => (
+          <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
+        )} />
+        <Route path='/sign-in' render={() => (
+          <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
+        )} />
+        <Route path='/take-survey' render={() => (
+          <TakeAsurvey msgAlert={this.msgAlert}/>
+        )} />
+        <Route exact path='/response/:surveyID/:participantID' render={() => (
+          <SurveyResponse msgAlert={this.msgAlert}/>
+        )} />
+        <AuthenticatedRoute user={user} path='/sign-out' render={() => (
+          <SignOut msgAlert={this.msgAlert} clearUser={this.clearUser} user={user} />
+        )} />
+        <AuthenticatedRoute user={user} path='/change-password' render={() => (
+          <ChangePassword msgAlert={this.msgAlert} user={user} />
+        )} />
+        {/* create a survey */}
+        <AuthenticatedRoute user={user} path='/create-survey' render={() => (
+          <SurveyCreate msgAlert={this.msgAlert} user={user} />
+        )} />
+        {/* Update the survey */}
+        <AuthenticatedRoute user={user} exact path='/surveys/:id/edit' render={() => (
+          <SurveyUpdate msgAlert={this.msgAlert} user={user} />
+        )} />
+        {/* Show the survey */}
+        <AuthenticatedRoute user={user} exact path='/surveys/:id' render={() => (
+          <SurveyShow msgAlert={this.msgAlert} user={user} />
+        )} />
+        {/* Show ALL surveys */}
+        <AuthenticatedRoute user={user} exact path='/surveys' render={() => (
+          <SurveyIndex msgAlert={this.msgAlert} user={user} />
+        )} />
       </Fragment>
     )
   }
