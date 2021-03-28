@@ -1,10 +1,10 @@
 # SurveyUs
-> | Contents |  |
-> |--|--|
-> | [About](https://github.com/Mattastic-Voyage/survey-client#what-is-surveyus) | [Technologies Employed](https://github.com/Mattastic-Voyage/survey-client#technologies-employed) |
-> | [User Stories](https://github.com/Mattastic-Voyage/survey-client#user-stories) | [Future Iterations](https://github.com/Mattastic-Voyage/survey-client#future-iterations) |
-> | [Wireframe](https://github.com/Mattastic-Voyage/survey-client#wireframe) | [Links](https://github.com/Mattastic-Voyage/survey-client#links) |
-> | [Planning](https://github.com/Mattastic-Voyage/survey-client#planning) |  |
+| Contents |  |
+|--|--|
+| [About](https://github.com/Mattastic-Voyage/survey-client#what-is-surveyus) | [Technologies Employed](https://github.com/Mattastic-Voyage/survey-client#technologies-employed) |
+| [User Stories](https://github.com/Mattastic-Voyage/survey-client#user-stories) | [Future Iterations](https://github.com/Mattastic-Voyage/survey-client#future-iterations) |
+| [Wireframe](https://github.com/Mattastic-Voyage/survey-client#wireframe) | [Links](https://github.com/Mattastic-Voyage/survey-client#links) |
+| [Planning](https://github.com/Mattastic-Voyage/survey-client#planning) |  |
 >
 > ## What is SurveyUs?
 > **SurveyUs** is the flagship application produced by the creatives at [Mattastic-Voyage Industries](https://github.com/Mattastic-Voyage). One part survey, one part the adventure of taking a survey, SurveyUs aims to streamline the surveying process by asking users the tough questions and limiting their responses to the answers we like.
