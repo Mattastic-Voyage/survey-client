@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
+import { Container, Row, Button, Col } from 'react-bootstrap'
 // import Modaltest from './modaltest'
 
 const authenticatedOptions = (
@@ -37,23 +38,29 @@ const unauthenticatedOptions = (
         *SurveyUs*: For when the answers dont matter ¯|_(ツ)_/¯
       </p>
     </div>
-    <div>
+    <Row>
       <div>
-        <Link to='#sign-up'>
-          <button>Sign Up</button>
-        </Link>
+        <Col>
+          <Link to='#sign-up'>
+            <Button>Sign Up</Button>
+          </Link>
+        </Col>
       </div>
       <div>
-        <Link to='#take-survey'>
-          <button>Take A Survey</button>
-        </Link>
+        <Col>
+          <Link to='#take-survey'>
+            <Button>Take A Survey</Button>
+          </Link>
+        </Col>
       </div>
       <div>
-        <Link to='#sign-in'>
-          <button>Sign In</button>
-        </Link>
+        <Col>
+          <Link to='#sign-in'>
+            <Button className='button'>Sign In</Button>
+          </Link>
+        </Col>
       </div>
-    </div>
+    </Row>
   </Fragment>
 )
 
@@ -65,8 +72,12 @@ const unauthenticatedOptions = (
 
 const Home = ({ user }) => (
   <Fragment>
-    { user ? authenticatedOptions : unauthenticatedOptions }
-    {/* alwaysOptions */}
+    <Container>
+      <Row className='justify-content-center'>
+        { user ? authenticatedOptions : unauthenticatedOptions }
+        {/* alwaysOptions */}
+      </Row>
+    </Container>
   </Fragment>
 )
 
