@@ -25,9 +25,11 @@
 >> - As a signed in user, I would like to delete my survey.
 >> - As a signed in user, I would like to see all surveys and its answers.
 >> - As an unregistered user with a link/token/code, I would like to take a survey.
->
+> ###### [(Return to top)](https://github.com/Mattastic-Voyage/survey-client#surveyus)
+> 
 > ## Wireframe
 >> ![Wireframe](https://media.git.generalassemb.ly/user/33705/files/0c465780-8bda-11eb-9c66-6cd2d158a444)
+> ###### [(Return to top)](https://github.com/Mattastic-Voyage/survey-client#surveyus)
 >
 > ## Planning
 >> The planning and breakdown of this project happened over the course of several long form conversations. A special thanks to [mjeder](https://github.com/mjeder) for the organization and itemization of requirements.
@@ -40,6 +42,8 @@
 >> | [Kenneth Cox](https://github.com/xpertimage): | <!-- What they did --> | - Drew up the ERD<br />- Spearheaded the conversation to articulate the structure of the [API](https://github.com/Mattastic-Voyage/survey-api)<br />- Provided examples of previous successes to help inform the sculpting of the [API](https://github.com/Mattastic-Voyage/survey-api) | - Drove the coding while we mob programmed | - Created the TakeaSurvey form and page<br />- All around Team MVP for identifying the patterns for the solutions to our problems | - Worked with [Matt Eder](https://github.com/mjeder) to compete the index survey function<br />- Worked with [Matt Eder](https://github.com/mjeder), [Eric Howard](https://github.com/EricHoward27), and [Matt Moore](https://github.com/mmmoore1313) to solidfy the error on the response save<br />- Instrumental in the design process and logic developement of the survey rating system |
 >> | [Matt Moore](https://github.com/mmmoore1313): | <!-- What they did --> | - Drew up the Wireframe<br />- Did the initial deployment of the [Client](https://github.com/Mattastic-Voyage/survey-client) to [GH-Pages](https://mattastic-voyage.github.io/survey-client/)<br />- Drafted the README.md | - Set up and deployed Heroku account<br />- Acted as Git guru for seamless merging of branches<br />- Modified the README.md as needed | - Acted as tester for merges to the dev branch<br />-  Acted as Git guru for seamless merging of branches<br />- Worked into the evening with [Eric Howard](https://github.com/EricHoward27) and [Kenneth Cox](https://github.com/xpertimage) to find a solution to the TakeaSurvey page | - Styling<br />-  Acted as Git guru for seamless merging of branches<br />- Finalized deployments to gh-pages and heroku<br />- Worked with [Matt Eder](https://github.com/mjeder), [Eric Howard](https://github.com/EricHoward27), and [Kenneth Cox](https://github.com/xpertimage) to solidfy the error on the response save |
 >>
+> ###### [(Return to top)](https://github.com/Mattastic-Voyage/survey-client#surveyus)
+>
 > ## Technologies Employed
 >> | **General Development** | **[Client](https://github.com/Mattastic-Voyage/survey-client) Development** | **[API](https://github.com/Mattastic-Voyage/survey-api) Development** | **Deployment** |
 >> |---|---|---|---|
@@ -53,6 +57,8 @@
 >> | [CSS](https://www.w3schools.com/css/) | | | |
 >> | [SCSS](https://sass-lang.com/) | | | |
 >
+> ###### [(Return to top)](https://github.com/Mattastic-Voyage/survey-client#surveyus)
+>
 > ## Future Iterations
 >
 >> ### Stretch Goals
@@ -62,9 +68,15 @@
 >>> - **Problem**
 >>>> - We solved the main problems we encountered on our way to Minimum Viable Product. Our aim is to accomplish some of our stretch goals as we roll forwards
 >>
+>
+> ###### [(Return to top)](https://github.com/Mattastic-Voyage/survey-client#surveyus)
+>
 > ## Links:
 >> | | **Deployed Sites** | **Repositories** |
 >> |--|--|--|
 >> | Front End App: | [https://mattastic-voyage.github.io/survey-client/](https://mattastic-voyage.github.io/survey-client/) | [Client](https://github.com/Mattastic-Voyage/survey-client) |
 >> | Back End API: | [https://frozen-thicket-25455.herokuapp.com/](https://frozen-thicket-25455.herokuapp.com/) | [API](https://github.com/Mattastic-Voyage/survey-api) |
 >> | Team Home: | | [Mattastic-Voyage](https://github.com/Mattastic-Voyage) |
+>
+> ###### [(Return to top)](https://github.com/Mattastic-Voyage/survey-client#surveyus)
+>
