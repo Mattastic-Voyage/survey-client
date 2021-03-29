@@ -1,26 +1,34 @@
 import React, { Fragment } from 'react'
-import { Link } from 'react-router-dom'
 import { Container, Row, Button, Col, Nav } from 'react-bootstrap'
 // import Modaltest from './modaltest'
 
 const authenticatedOptions = (
   <Fragment>
     <h3>Welcome Back!</h3>
-    <div>
-      <Link to='#create-survey'>
-        <button>Make a Survey</button>
-      </Link>
-    </div>
-    <div>
-      <Link to='#surveys'>
-        <button>View All Surveys</button>
-      </Link>
-    </div>
-    <div>
-      <Link to='#change-password'>
-        <button>Change Password</button>
-      </Link>
-    </div>
+    <hr />
+    <Row>
+      <div>
+        <Col>
+          <Nav.Link href='#create-survey'>
+            <Button>Make a Survey</Button>
+          </Nav.Link>
+        </Col>
+      </div>
+      <div>
+        <Col>
+          <Nav.Link href='#surveys'>
+            <Button>View All Surveys</Button>
+          </Nav.Link>
+        </Col>
+      </div>
+      <div>
+        <Col>
+          <Nav.Link href='#change-password'>
+            <Button>Change Password</Button>
+          </Nav.Link>
+        </Col>
+      </div>
+    </Row>
   </Fragment>
 )
 
