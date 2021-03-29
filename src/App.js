@@ -18,7 +18,9 @@ import SurveyShow from './components/routes/SurveyShow'
 import SurveyUpdate from './components/routes/SurveyUpdate'
 import SurveyIndex from './components/routes/SurveyIndex'
 // import layout
-import Layout from './components/shared/Layout'
+import Header from './components/shared/Header'
+import Home from './components/shared/Home'
+import Footer from './components/shared/Footer'
 
 class App extends Component {
   constructor (props) {
@@ -63,7 +65,9 @@ class App extends Component {
           />
         ))}
 
-        <Layout />
+        <Header user={user} />
+        <Home user={user} />
+        <Footer />
         <Route path='/sign-up' render={() => (
           <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
         )} />
