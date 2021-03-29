@@ -1,8 +1,11 @@
 import React, { Fragment } from 'react'
+import { Container } from 'react-bootstrap'
 
 const Footer = () => (
   <Fragment>
-    <p>This is a Mattastic Voyage production</p>
+    <Container>
+      <p>This is a Mattastic Voyage production</p>
+    </Container>
   </Fragment>
 )
 
