@@ -32,7 +32,7 @@
 > ###### [(Return to top)](https://github.com/Mattastic-Voyage/survey-client#surveyus)
 >
 > ## Planning
->> The planning and breakdown of this project happened over the course of several long form conversations. A special thanks to [mjeder](https://github.com/mjeder) for the organization and itemization of requirements.
+>> The planning and breakdown of this project happened over the course of several long form conversations. A special thanks to [mjeder](https://github.com/mjeder) for the organization and itemization of requirements. [Project Requirements Checklist](https://docs.google.com/spreadsheets/d/1kJRGhsgKEV9xVL3lXtyz6cqBWf14lm6JuXD02uneldA/edit?usp=sharing).
 >>
 >> |  | **Day 1: 20 minute Planning Standup** | **Day 2: Back-End API Sprint** | **Day 3: CRUD Sprint** | **Day 4: Survey Logic** | **Day 5: Styling and Bug Testing** |
 >> |--|--|--|--|--|--|
