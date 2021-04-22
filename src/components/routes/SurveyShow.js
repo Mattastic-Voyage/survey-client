@@ -1,8 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import Spinner from 'react-bootstrap/Spinner'
 // import withRouter to use the match router prop
 import { withRouter, Redirect, Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
+import Table from 'react-bootstrap/Table'
+import Moment from 'react-moment'
 import { surveyShow, surveyDelete } from '../../api/survey'
 
 class SurveyShow extends Component {
@@ -61,7 +63,7 @@ class SurveyShow extends Component {
       })
   }
   render () {
-    const { survey, title, deleted } = this.state
+    const { survey, deleted } = this.state
     // console.log('response data is: ', survey.responses)
     // if we don't have survey
     if (!survey) {
@@ -77,22 +79,40 @@ class SurveyShow extends Component {
     }
     const responseJsx = survey.responses.map(response => (
       // // console.log('this is the response data: ', response.response)
-      <div key={response.response}>
-        <li>{response.response}</li>
-      </div>
+      <Fragment key={response.response}>
+        <tr>
+          <td>{response.response}</td>
+          <td><Moment format='M/D/YY h:m a'>{response.createdAt}</Moment></td>
+        </tr>
+      </Fragment>
     ))
     return (
-      <div>
-        <h3>{title}</h3>
-        <h4>Question: {survey.question}</h4>
-        <h4>SurveyID: {survey._id}</h4>
-        <h4>Response: {responseJsx} </h4>
-        <Button onClick={this.handleDelete}>Delete Survey</Button>
-        <Link to={`/surveys/${survey._id}/edit`}>
-          <Button renderAs='button'>
-            Edit Survey
-          </Button>
-        </Link>
+      <div className="row text-center container">
+        <div className="col-sm-12 mx-auto">
+          <div>
+            <img src="logo-su-main.png" className="mx-auto d-block mt-4 mb-4"/>
+          </div>
+          <h2 className="text-center mt-3">{survey.title}</h2>
+          <p className="text-center mb-5">{survey._id}</p>
+          <h5 className="text-center mt-3 mb-4">{survey.question}</h5>
+          <Link to={`/surveys/${survey._id}/edit`}>
+            <Button className="mr-5 mb-4" variant="flat">
+              Edit Survey
+            </Button>
+          </Link>
+          <Button className="mb-4" variant="danger"onClick={this.handleDelete}>Delete Survey</Button>
+          <Table striped bordered hover size="sm" width="150" className="text-center table">
+            <thead>
+              <tr>
+                <th>Response</th>
+                <th>Timestamp</th>
+              </tr>
+            </thead>
+            <tbody>
+              {responseJsx}
+            </tbody>
+          </Table>
+        </div>
       </div>
     )
   }
