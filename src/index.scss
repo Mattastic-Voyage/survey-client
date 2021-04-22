@@ -1,1 +1,33 @@
 @import '~bootstrap/scss/bootstrap';
+
+.nav-bar {
+  font-family: 'Poppins', sans-serif;
+  font-size: 25px;
+  background-color: #044b7f;
+}
+
+.btn-flat, .btn-flat:hover {
+  background-color: #044b7f;
+  color: white;
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  color: #044b7f;
+}
+
+h5 {
+  font-family: 'Poppins', sans-serif;
+  color: #044b7f;
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+  color: #044b7f;
+}
+
+thead {
+  font-family: 'Poppins', sans-serif;
+  background-color: #044b7f;
+  color: #ffffff;
+}
